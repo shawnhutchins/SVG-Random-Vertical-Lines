@@ -31,16 +31,15 @@ SVGline.prototype.createline = function (x1, y1, x2, y2, color, w) {
 
 function start() {
     let aSvg = document.createElementNS('http://www.w3.org/2000/svg', 'svg');
-    aSvg.setAttribute('width', 800);
-    aSvg.setAttribute('height', 80);
+    aSvg.setAttribute('width', 400);
+    aSvg.setAttribute('height', 84);
     
     let container = document.getElementById('container');
 
-    for (let i = 1; i < 100; i += 1) {
+    for (let i = 1; i < 50; i += 1) {
 
         let topRand = Math.floor(Math.random() * 500 / 16);
         let bottomRand = Math.floor(Math.random() * 500 / 16);
-        //console.log(topRand + " + " + bottomRand)
 
         let nextLine = Line[i].createline(i*lineGap, topRand, i*lineGap, startLength-bottomRand, 'rgb(0,0,' + topRand + ')', strokeWidth);
         aSvg.appendChild(nextLine);
