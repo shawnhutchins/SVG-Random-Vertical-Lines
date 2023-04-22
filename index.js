@@ -6,13 +6,13 @@ const startLength = 80;
 const lineGap = 8;
 const strokeWidth = 2;
 
-let Line = {};
+const Line = {};
 
 Line.LINES = Array.apply(null, Array(lineCount)).map(function (x, i) {
 	return i;
 });
 
-let SVGline = function (l) {
+const SVGline = function (l) {
 	this.l = l;
 };
 
@@ -41,16 +41,16 @@ SVGline.prototype.createline = function (
 	return aLine;
 };
 
-let aSvg = document.createElementNS('http://www.w3.org/2000/svg', 'svg');
+const aSvg = document.createElementNS('http://www.w3.org/2000/svg', 'svg');
 aSvg.setAttribute('width', 400);
 aSvg.setAttribute('height', 84);
 
-let container = document.getElementById('container');
+const container = document.getElementById('container');
 
 for (let i = 1; i < 50; i += 1) {
-	let topRand = Math.floor((Math.random() * 500) / 16);
-	let bottomRand = Math.floor((Math.random() * 500) / 16);
-	let nextLine = Line[i].createline(
+	const topRand = Math.floor((Math.random() * 500) / 16);
+	const bottomRand = Math.floor((Math.random() * 500) / 16);
+	const nextLine = Line[i].createline(
 		i * lineGap,
 		topRand,
 		i * lineGap,
@@ -61,3 +61,12 @@ for (let i = 1; i < 50; i += 1) {
 	aSvg.appendChild(nextLine);
 }
 container.appendChild(aSvg);
+
+const rotate = () => {
+	console.log(document.querySelector(''))
+}
+
+const rotateButton = document.createElement('button')
+rotateButton.addEventListener('click', rotate)
+rotateButton.append(90)
+document.querySelector('body').appendChild(rotateButton)
