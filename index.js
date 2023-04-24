@@ -63,7 +63,8 @@ for (let i = 1; i < 50; i += 1) {
 container.appendChild(aSvg);
 
 const rotate = () => {
-	console.log(document.querySelector(''))
+	const svgElement = document.querySelector('svg')
+	svgElement.setAttribute('transform', 'rotate(90)')
 }
 
 const rotateButton = document.createElement('button')
