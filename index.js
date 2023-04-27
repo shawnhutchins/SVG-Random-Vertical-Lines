@@ -62,8 +62,11 @@ for (let i = 1; i < 50; i += 1) {
 }
 container.appendChild(aSvg);
 
+const svgElement = document.querySelector('svg');
+
+//svgElement.
+
 const rotate = () => {
-	const svgElement = document.querySelector('svg');
 	svgElement.classList.toggle('rotate');
 };
 
