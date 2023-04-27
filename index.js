@@ -43,7 +43,7 @@ SVGline.prototype.createline = function (
 
 const aSvg = document.createElementNS('http://www.w3.org/2000/svg', 'svg');
 aSvg.setAttribute('width', 400);
-aSvg.setAttribute('height', 84);
+aSvg.setAttribute('height', 400);
 
 const container = document.getElementById('container');
 
@@ -63,11 +63,12 @@ for (let i = 1; i < 50; i += 1) {
 container.appendChild(aSvg);
 
 const rotate = () => {
-	const svgElement = document.querySelector('svg')
-	svgElement.setAttribute('transform', 'rotate(90)')
-}
+	const svgElement = document.querySelector('svg');
+	svgElement.classList.toggle('rotate');
+};
 
-const rotateButton = document.createElement('button')
-rotateButton.addEventListener('click', rotate)
-rotateButton.append(90)
-document.querySelector('body').appendChild(rotateButton)
+const rotateButton = document.createElement('button');
+rotateButton.addEventListener('click', rotate);
+rotateButton.textContent = 'Rotate';
+
+document.querySelector('body').appendChild(rotateButton);

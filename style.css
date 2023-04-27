@@ -1,5 +1,6 @@
 body {
 	margin: 0;
+	display: block;
 }
 
 h1,
@@ -10,6 +11,10 @@ h2 {
 line {
 	transform: translateY(3px);
 	animation: wavyLines 1.3s alternate steps(15, end) infinite;
+}
+
+.rotate {
+	transform: rotate(-90deg);
 }
 
 line:nth-child(1) {
@@ -164,7 +169,6 @@ line:nth-child(45) {
 }
 
 @keyframes wavyLines {
-	20,
 	100% {
 		transform: translate(0, 0px);
 	}
