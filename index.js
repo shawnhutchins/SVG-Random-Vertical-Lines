@@ -1,10 +1,15 @@
 // Import stylesheets
 import './style.css';
 
-const lineCount = 100;
+const lineCount = 50;
 const startLength = 80;
 const lineGap = 8;
 const strokeWidth = 2;
+
+const container = document.getElementById('container');
+const aSvg = document.createElementNS('http://www.w3.org/2000/svg', 'svg');
+aSvg.setAttribute('width', 400);
+aSvg.setAttribute('height', 400);
 
 const Line = {};
 
@@ -20,18 +25,8 @@ for (let i = Line.LINES.length; i > -1; i -= 1) {
 	Line[Line.LINES[i]] = new SVGline(Line.LINES[i]);
 }
 
-//add setting animation-delay with JS to remove static values in css
-SVGline.prototype.createline = function (
-	x1,
-	y1,
-	x2,
-	y2,
-	color,
-	w,
-	animationDelay
-) {
+SVGline.prototype.createline = function (x1, y1, x2, y2, color, w) {
 	const aLine = document.createElementNS('http://www.w3.org/2000/svg', 'line');
-	aLine.setAttribute('animation-delay', animationDelay);
 	aLine.setAttribute('x1', x1);
 	aLine.setAttribute('y1', y1);
 	aLine.setAttribute('x2', x2);
@@ -41,13 +36,7 @@ SVGline.prototype.createline = function (
 	return aLine;
 };
 
-const aSvg = document.createElementNS('http://www.w3.org/2000/svg', 'svg');
-aSvg.setAttribute('width', 400);
-aSvg.setAttribute('height', 400);
-
-const container = document.getElementById('container');
-
-for (let i = 1; i < 50; i += 1) {
+for (let i = 1; i < lineCount; i += 1) {
 	const topRand = Math.floor((Math.random() * 500) / 16);
 	const bottomRand = Math.floor((Math.random() * 500) / 16);
 	const nextLine = Line[i].createline(
@@ -55,19 +44,15 @@ for (let i = 1; i < 50; i += 1) {
 		topRand,
 		i * lineGap,
 		startLength - bottomRand,
-		'rgb(0,0,' + topRand + ')',
+		'rgb(0,0,0)',
 		strokeWidth
 	);
 	aSvg.appendChild(nextLine);
 }
 container.appendChild(aSvg);
 
-const svgElement = document.querySelector('svg');
-
-//svgElement.
-
 const rotate = () => {
-	svgElement.classList.toggle('rotate');
+	aSvg.classList.toggle('rotate');
 };
 
 const rotateButton = document.createElement('button');
