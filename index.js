@@ -1,3 +1,6 @@
+//Uncomment to allow CSS to load on stackblitz. This may cause problems in other editors or browsers.
+// import "./style.css"
+
 const lineCount = 50;
 const startLength = 80;
 const lineGap = 8;
